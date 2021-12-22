@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- bigdataProcess.map에서 설정한 지도를 보여준다, base.html과 maptest.html이 충돌로 인해 스타일이 깨짐현상이 발생한다 -->
+    {% include "bigdata/maptest.html" %}
+{% endblock %}

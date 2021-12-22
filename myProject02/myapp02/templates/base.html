@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <script src="{% static 'jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <title>Django!!!</title>
+    <style>
+      h3 {  
+          font-family: 'Jua', sans-serif;
+      }
+  </style>
+</head>
+<body>
+    <!-- 네비게이션 바 -->
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+        <a class="navbar-brand" href="/">Home</a>
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/list">Board</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/list2">Board2(Paginator)</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/write_from">BoardWrite</a>
+          </li>
+        </ul>
+      </nav>
+<!--기본 템플릿 안에 삽입될 내용 Start  -->
+{% block content %}
+{% endblock %}
+
+<!-- 자바스크립트 Start -->
+{% block script %}
+{% endblock %}
+</body>
+</html>

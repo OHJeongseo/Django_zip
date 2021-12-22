@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- 날씨정보에 대한 차트(3개의 그래프로 보여준다) -->
+<div class="container mt-3" align="center">
+ <img src="{% get_static_prefix %}images/{{img_data.plot}}" width="600" height="400" /> 
+ <img src="{% get_static_prefix %}images/{{img_data.bar}}" width="600" height="400" /> 
+ <img src="{% get_static_prefix %}images/{{img_data.pie}}" width="600" height="400" /> 
+</div>
+{{data}}
+{% endblock %}

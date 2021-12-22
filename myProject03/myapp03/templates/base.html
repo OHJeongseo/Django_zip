@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <script src="{% static 'jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <title>Django!!!</title>
+    <style>
+      h3 {  
+          font-family: 'Jua', sans-serif;
+      }
+  </style>
+</head>
+<body>
+    <!-- 네비게이션 바 -->
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+        <a class="navbar-brand" href="/">Home</a>
+        <ul class="navbar-nav">
+          <li class="nav-item ">
+            <a class="nav-link" href="/list">BoardList(Paginator)</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/movie">영화평점클로링</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/movie_chart">영화평점차트</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/weather">날씨정보</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/map">지도</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/wordcloud">워드클라우드</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/movieTickting">영화예매차트</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <!-- 로그인확인 -->
+          {% if user.is_authenticated %}
+            <li class="nav-item ">
+              <a class="nav-link" href="/logout">({{user.username}})로그아웃</a>
+            </li>
+          {% else %}
+            <li class="nav-item ">
+              <a class="nav-link" href="/login">로그인</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="/signup">회원가입</a>
+            </li>
+          {% endif %}
+        </ul>
+      </nav>
+      
+<!--기본 템플릿 안에 삽입될 내용 Start  -->
+{% block content %}
+{% endblock %}
+
+<!-- 자바스크립트 Start -->
+{% block script %}
+{% endblock %}
+</body>
+</html>

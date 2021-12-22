@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container mt-3">
+      <input type="hidden" id="id" name="id" value="{{dto.id}}" />
+        <h3 align="center">상세보기</h3>
+         <table class="table table-bordered">
+            <tr align="center">
+              <th width="150px">제목</th>
+              <td width="150px">{{dto.title}}</td>
+              <th width="150px">작성자</th>
+              <td width="150px">{{dto.writer}}</td>
+            </tr>
+            <tr align="center">
+              <th>작성일</th>
+              <td colspan="3">{{dto.post_date}}</td>
+            </tr>
+            <tr align="center">
+                <th>조회수</th>
+                <td>{{dto.hit}}</td>
+                <th>파일</th>
+                <td>{{dto.filename}}</td>
+            </tr>
+            <tr align="center">
+                <th>내용</th>
+                <td colspan="3">{{dto.content}}</td>
+            </tr>
+        </table>
+        <div align="center">
+        <a href="/update_form/{{dto.id}}"><button type="button" class="btn btn-primary">수정폼 이동</button></a>
+        <a href="/delete/{{dto.id}}"><button type="button" class="btn btn-danger">삭제</button></a>
+        </div>
+
+        <form action="/comment_insert/" method="post">
+            <input type="hidden" name="id" value="{{dto.id}}"/>
+            <div class="form-group">
+              <label for="content" style="font-family: Jua;">댓글쓰기:</label>
+              <textarea class="form-control" rows="5" id="content" name="content"></textarea>
+            </div>
+            <div align="right">
+            <button type="submit" class="btn btn-primary btn-sm">댓글추가</button>
+            </div>
+        </form>
+<!-- board와 연관된 comment의 데이터를 가져와서 출력되도록 설정 -->
+        <div style="font-family: Jua;">댓글:{{dto.comment_set.count}}</div> 
+        {% if dto.comment_set.count > 0 %}
+        <table class="table table-striped">
+          {% for comment in dto.comment_set.all %}
+            <tr>
+              <th width="150px">{{comment.writer}}</th>
+              <th width="150px">{{comment.post_date}}</th>
+            </tr>
+            <tr>
+              <td>{{comment.content}}</td>
+              <td>
+                <a href=""><button type="button" class="btn btn-primary">수정</button></a>
+                <a href=""><button type="button" class="btn btn-danger">삭제</button></a>
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+        {% endif %}
+    </div>
+{% endblock %}

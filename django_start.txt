@@ -1,0 +1,57 @@
+//관리자권한 cmd
+->아나콘다 설치 확인
+1.pip install
+	   django 
+	   mysqlclient <-2번 프로젝트 안에서 설치
+1.2 설치후 내가 만든폴더로 이동한다 cd 해당폴더
+
+2.
+   django-admin startproject 프로젝트명
+
+3.
+   프로젝트명 이동
+   python manage.py startapp 앱이름
+
+
+//db 세팅-> 4번만 비주얼스튜디오코드에서 작성
+4(프로젝트 - settings.py)
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME':'djangodb',
+        'USER':'root',
+        'PASSWORD':'root',
+        'HOST':'localhost',
+        'PORT':3306
+
+    }
+}
+
+
+//한글처리/시간설정
+4.1
+LANGUAGE_CODE = 'ko'
+TIME_ZONE = 'Asia/Seoul'
+
+//db에 스키마 생성하고 모델.py에서 테이블 생성후 명령어 작성 
+5.python manage.py makemigrations
+  python manage.py migrate
+
+//django 시작-> 2에서 만들어진 프로젝트안에서 실행
+6.python manage.py runserver 
+결과 웹브라우저에서 cmd에서 출력되는 localhost:8000으로 들어간다
+
+
+1)프로젝트- 앱/ modes.py-> class생성(테이블 생성)-> cmd 5번 작성-> mysql사용
+	 
+2) 프로젝트/ urls.py-> url설정-> 앱/ views.py-> templates/board/.html와 연동하여 사용
+
+3)
+
+
+##로그인 사용
+//cmd
+4)python manage.py createsuperuser(장고 관리자 계정을 만든다)
+4.0)계정로그인ID,PASSWORD를 설정한다-> db의auth_user에 계정에 대한 데이터가 추가된다
+//웹브라우저
+4.1)localhost:8000/admin-> 로그인하여 계정의 정보를 확인할수있다

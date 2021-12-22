@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-3" align="center">
+ <!-- <img src="{% static 'images/movie_fig.png' %}" width="600" height="400" /> -->
+ <!-- 경로에 있는 이미지데이터(동적) 설정 -->
+ <img src="{% get_static_prefix %}images/{{img_data}}" width="600" height="400" /> 
+</div>
+{{data}}
+{% endblock %}

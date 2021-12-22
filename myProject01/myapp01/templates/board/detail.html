@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>상세보기 / <a href="/">List</a></h1>
+    hit:{{dto.hit}} <br/>
+    writer:{{dto.writer}}<br/>
+    title:{{dto.title}}<br/>
+    content:{{dto.content}}<br/>
+    date:{{dto.post_date}}<br/>
+    file: {{dto.filename}}<br/>
+    filesize: {{dto.filesize}}<br/>
+    <a href="/update_form/{{dto.idx}}">수정</a>
+    <a href="/delete/{{dto.idx}}">삭제</a>
+
+    <br/><br/>
+    <h3>comment</h3>
+    <form action="/comment_insert/" method="post">
+        <input type="hidden" name="idx" value="{{dto.idx}}"/>
+        <textarea name="content" rows="5" cols="50" placeholder="댓글을 입력하세요 "></textarea><br/>
+        <input type="submit" value="전송"/>
+    </form>
+    <br/><br/>
+    {% for row in CommentList %}
+        {{row.writer}} / {{row.post_date}} <br/>
+        {{row.content}} <br/>
+    {% endfor %}
+</body>
+</html>

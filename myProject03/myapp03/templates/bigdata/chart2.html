@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-3" align="center">
+<!-- 영화예매율 그래프(파이,바) -->
+ <!-- 경로에 있는 이미지데이터(동적) 설정 -->
+ <img src="{% get_static_prefix %}images/{{img_data.bar}}" width="600" height="400" /> 
+ <img src="{% get_static_prefix %}images/{{img_data.pie}}" width="600" height="400" /> 
+</div>
+{{data}}
+{% endblock %}

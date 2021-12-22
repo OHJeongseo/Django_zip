@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load board_filter %} 
+{% block content %}
+<div class="container">
+    <style>
+        .right-box {
+          margin-top: 10px;
+          float: right;
+        }
+    </style>
+    <h3 align=center class="mt-3">전체보기({{boardCount}})
+      /<a href="/write_form"><input type="button" class="btn btn-primary mb-2" value="글쓰기"/></a>
+    </h3>
+    <div class="right-box">
+        <form class="form-inline" action="/list2">
+            <div class="input-group">
+                <input type="text" class="form-control mb-2 mr-sm-2" id="word" placeholder="search" name="word">
+                <input type="submit" class="btn btn-primary mb-2" value="검색"/>
+            </div>
+        </form>
+        
+    </div>
+  
+    <table class="table table-hover mt-3">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>작성자</th>
+          <th>제목</th>
+          <th>날짜</th>
+          <th>조회수</th>
+          <th>첨부파일</th>
+          <th>다운로드</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for board in page_list %}
+            <tr>
+            <td>{{rowNo|sub:forloop.counter0}}</td>
+            <td>{{board.writer}}</td>
+            <td>
+                <a href="/detail_id?id={{board.id}}">{{board.title}}</a> 
+                <!-- <a href="/detail/{{board.id}}">{{board.title}}</a> -->
+            </td>
+            <td>{{board.post_date|date:"Y-m-d"}}</td>
+            <td>{{board.hit}}</td>
+            <td>   
+              <span class="_imgs" data-url="/download_count?id={{board.id}}">
+                <img src="{%static 'images/diablo00.jpg'%}" width="30" height="30">
+              </span>
+            </td>
+            <td class="downCnt">{{board.down}}</td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <ul class="pagination">
+        <!-- 페이징(이전) -->
+        {% if page_list.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{page_list.previous_page_number}}">이전</a>
+        </li>
+        {% endif%}
+    
+        <!-- 페이징(다음) -->
+        {% if page_list.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{page_list.next_page_number}}">다음</a>
+        </li>
+        {% endif %}
+    </ul>
+</div>
+</body>
+</html>
+<script>
+  $("._imgs").on("click", function(){
+      _imgs= $(this);
+      $.ajax({
+          url:$(this).attr("data-url"),
+          type:"GET",
+          success:function(data){
+              //alert(data.count)
+              _imgs.parent().parent().find(".downCnt").text(data.count)
+              location.href= "/download?id="+data.id
+          }
+      })
+  })
+</script>
+{% endblock %}

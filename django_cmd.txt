@@ -1,0 +1,1181 @@
+Microsoft Windows [Version 10.0.19041.1348]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\windows\system32>pip install django
+Collecting django
+  Using cached Django-4.0-py3-none-any.whl (8.0 MB)
+Requirement already satisfied: sqlparse>=0.2.2 in c:\programdata\anaconda3\lib\site-packages (from django) (0.4.2)
+Collecting asgiref<4,>=3.4.1
+  Using cached asgiref-3.4.1-py3-none-any.whl (25 kB)
+Requirement already satisfied: tzdata in c:\programdata\anaconda3\lib\site-packages (from django) (2021.5)
+Collecting backports.zoneinfo
+  Using cached backports.zoneinfo-0.2.1-cp38-cp38-win_amd64.whl (38 kB)
+Installing collected packages: backports.zoneinfo, asgiref, django
+Successfully installed asgiref-3.4.1 backports.zoneinfo-0.2.1 django-4.0
+
+C:\windows\system32>cd C:\DjangoWorkSpace
+
+C:\DjangoWorkSpace>django-admin startproject myProject01
+
+C:\DjangoWorkSpace>dir/w
+ C 드라이브의 볼륨에는 이름이 없습니다.
+ 볼륨 일련 번호: ACE1-AF56
+
+ C:\DjangoWorkSpace 디렉터리
+
+[.]           [..]          [myProject01]
+               0개 파일                   0 바이트
+               3개 디렉터리  104,055,279,616 바이트 남음
+
+C:\DjangoWorkSpace>cd myProject01
+
+C:\DjangoWorkSpace\myProject01>dir/w
+ C 드라이브의 볼륨에는 이름이 없습니다.
+ 볼륨 일련 번호: ACE1-AF56
+
+ C:\DjangoWorkSpace\myProject01 디렉터리
+
+[.]           [..]          manage.py     [myProject01]
+               1개 파일                 689 바이트
+               3개 디렉터리  104,055,279,616 바이트 남음
+
+C:\DjangoWorkSpace\myProject01>python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+December 16, 2021 - 09:10:42
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+[16/Dec/2021 09:11:01] "GET / HTTP/1.1" 200 10697
+[16/Dec/2021 09:11:01] "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+[16/Dec/2021 09:11:01] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 86184
+[16/Dec/2021 09:11:01] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 85876
+[16/Dec/2021 09:11:01] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 85692
+Not Found: /favicon.ico
+[16/Dec/2021 09:11:01] "GET /favicon.ico HTTP/1.1" 404 2115
+
+C:\DjangoWorkSpace\myProject01>python manage.py startapp myapp01
+
+C:\DjangoWorkSpace\myProject01>dir/w
+ C 드라이브의 볼륨에는 이름이 없습니다.
+ 볼륨 일련 번호: ACE1-AF56
+
+ C:\DjangoWorkSpace\myProject01 디렉터리
+
+[.]           [..]          db.sqlite3    manage.py     [myapp01]     [myProject01]
+               2개 파일                 689 바이트
+               4개 디렉터리  104,053,719,040 바이트 남음
+
+C:\DjangoWorkSpace\myProject01>cd myapp01
+
+C:\DjangoWorkSpace\myProject01\myapp01>dir/w
+ C 드라이브의 볼륨에는 이름이 없습니다.
+ 볼륨 일련 번호: ACE1-AF56
+
+ C:\DjangoWorkSpace\myProject01\myapp01 디렉터리
+
+[.]           [..]          admin.py      apps.py       [migrations]  models.py     tests.py      views.py
+__init__.py
+               6개 파일                 407 바이트
+               3개 디렉터리  104,053,719,040 바이트 남음
+
+C:\DjangoWorkSpace\myProject01\myapp01>cd..
+
+
+C:\DjangoWorkSpace\myProject01>pip install mysqlclient
+Collecting mysqlclient
+  Downloading mysqlclient-2.1.0-cp38-cp38-win_amd64.whl (180 kB)
+     |████████████████████████████████| 180 kB 2.2 MB/s
+Installing collected packages: mysqlclient
+Successfully installed mysqlclient-2.1.0
+
+C:\DjangoWorkSpace\myProject01>python manage.py makemigrations
+No changes detected
+
+C:\DjangoWorkSpace\myProject01>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying sessions.0001_initial... OK
+
+C:\DjangoWorkSpace\myProject01>python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 09:33:20
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+[16/Dec/2021 09:33:47] "GET / HTTP/1.1" 200 10770
+Not Found: /static/admin/css/fonts.css
+[16/Dec/2021 09:33:47] "GET /static/admin/css/fonts.css HTTP/1.1" 404 2160
+C:\DjangoWorkSpace\myProject01\myProject01\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 10:05:33
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\models.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 10:13:07
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+C:\DjangoWorkSpace\myProject01>python manage.py makemigrations
+Migrations for 'myapp01':
+  myapp01\migrations\0001_initial.py
+    - Create model Board
+    - Create model Comment
+
+C:\DjangoWorkSpace\myProject01>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, myapp01, sessions
+Running migrations:
+  Applying myapp01.0001_initial... OK
+
+C:\DjangoWorkSpace\myProject01>python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+
+C:\DjangoWorkSpace\myProject01>python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+
+
+C:\DjangoWorkSpace\myProject01>python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+
+
+C:\DjangoWorkSpace\myProject01>python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+
+
+
+
+C:\DjangoWorkSpace\myProject01>python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 11:44:46
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+2
+[16/Dec/2021 11:44:49] "GET / HTTP/1.1" 200 1108
+[16/Dec/2021 11:44:51] "GET /write_form HTTP/1.1" 200 743
+[16/Dec/2021 11:44:54] "GET /write_form HTTP/1.1" 200 743
+C:\DjangoWorkSpace\myProject01\myProject01\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 11:46:02
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+2
+[16/Dec/2021 11:46:03] "GET / HTTP/1.1" 200 1108
+[16/Dec/2021 11:46:04] "GET /write_form HTTP/1.1" 200 743
+2
+[16/Dec/2021 12:01:44] "GET / HTTP/1.1" 200 1172
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:03:17
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myProject01\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:05:01
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+[16/Dec/2021 12:05:02] "GET /detail_idx?idx=1 HTTP/1.1" 301 0
+[16/Dec/2021 12:05:02] "GET /detail_idx/?idx=1 HTTP/1.1" 200 284
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:06:03
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:06:21
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:09:31
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+2
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:10:38
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:10:49
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:10:51
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+[16/Dec/2021 12:10:52] "GET /detail_idx/?idx=2 HTTP/1.1" 200 396
+[16/Dec/2021 12:13:35] "GET /detail_idx/?idx=2 HTTP/1.1" 200 464
+2
+[16/Dec/2021 12:13:38] "GET / HTTP/1.1" 200 1274
+2
+[16/Dec/2021 12:13:44] "GET / HTTP/1.1" 200 1274
+2
+[16/Dec/2021 12:14:08] "GET / HTTP/1.1" 200 1274
+Not Found: /detail/1
+[16/Dec/2021 12:16:23] "GET /detail/1 HTTP/1.1" 404 2639
+[16/Dec/2021 12:16:26] "GET /detail_idx/?idx=1 HTTP/1.1" 200 464
+2
+[16/Dec/2021 12:16:29] "GET / HTTP/1.1" 200 1274
+C:\DjangoWorkSpace\myProject01\myProject01\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:17:35
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:17:46
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:18:01
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:18:09
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+2
+[16/Dec/2021 12:18:20] "GET / HTTP/1.1" 200 1274
+board_idx 1
+[16/Dec/2021 12:18:25] "GET /detail/1 HTTP/1.1" 200 464
+board_idx 2
+[16/Dec/2021 12:18:39] "GET /detail/2 HTTP/1.1" 200 464
+board_idx 1
+[16/Dec/2021 12:18:48] "GET /detail/1 HTTP/1.1" 200 464
+board_idx 2
+[16/Dec/2021 12:18:50] "GET /detail/2 HTTP/1.1" 200 464
+2
+[16/Dec/2021 12:18:55] "GET / HTTP/1.1" 200 1274
+board_idx 1
+[16/Dec/2021 12:18:58] "GET /detail/1 HTTP/1.1" 200 464
+[16/Dec/2021 12:19:00] "GET /detail_idx/?idx=1 HTTP/1.1" 200 464
+2
+[16/Dec/2021 12:19:03] "GET / HTTP/1.1" 200 1274
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:19:19
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myProject01\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:19:46
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+2
+[16/Dec/2021 12:19:46] "GET / HTTP/1.1" 200 1274
+[16/Dec/2021 12:19:48] "GET /detail/1 HTTP/1.1" 301 0
+board_idx 1
+[16/Dec/2021 12:19:48] "GET /detail/1/ HTTP/1.1" 200 464
+[16/Dec/2021 12:19:51] "GET /detail/2 HTTP/1.1" 301 0
+board_idx 2
+[16/Dec/2021 12:19:51] "GET /detail/2/ HTTP/1.1" 200 464
+2
+[16/Dec/2021 12:19:54] "GET / HTTP/1.1" 200 1274
+C:\DjangoWorkSpace\myProject01\myProject01\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+
+
+
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:23:51
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+2
+[16/Dec/2021 12:23:52] "GET / HTTP/1.1" 200 1274
+board_idx 1
+[16/Dec/2021 12:23:53] "GET /detail/1/ HTTP/1.1" 200 473
+[16/Dec/2021 12:23:55] "GET /delete/1 HTTP/1.1" 301 0
+Internal Server Error: /delete/1/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\DjangoWorkSpace\myProject01\myapp01\views.py", line 55, in delete
+    dto= Board.objects.delete(idx=dto_idx)
+AttributeError: 'Manager' object has no attribute 'delete'
+[16/Dec/2021 12:23:55] "GET /delete/1/ HTTP/1.1" 500 60837
+2
+[16/Dec/2021 12:24:07] "GET / HTTP/1.1" 200 1274
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:29:43
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:30:03
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:30:12
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:30:32
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+Internal Server Error: /delete/1/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: delete() got an unexpected keyword argument 'dto_idx'
+[16/Dec/2021 12:30:35] "GET /delete/1/ HTTP/1.1" 500 57777
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:30:50
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+1
+[16/Dec/2021 12:30:50] "GET /delete/1/ HTTP/1.1" 302 0
+2
+[16/Dec/2021 12:30:50] "GET /list/ HTTP/1.1" 200 1274
+board_idx 1
+[16/Dec/2021 12:30:52] "GET /detail/1/ HTTP/1.1" 200 474
+1
+[16/Dec/2021 12:30:53] "GET /delete/1/ HTTP/1.1" 302 0
+2
+[16/Dec/2021 12:30:53] "GET /list/ HTTP/1.1" 200 1275
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:31:27
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:31:35
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+2
+[16/Dec/2021 12:31:37] "GET /list/ HTTP/1.1" 200 1275
+[16/Dec/2021 12:31:39] "GET /detail_idx/?idx=2 HTTP/1.1" 200 473
+[16/Dec/2021 12:31:40] "GET /delete/2 HTTP/1.1" 301 0
+2
+[16/Dec/2021 12:31:40] "GET /delete/2/ HTTP/1.1" 302 0
+1
+[16/Dec/2021 12:31:40] "GET /list/ HTTP/1.1" 200 968
+1
+[16/Dec/2021 12:31:42] "GET /list/ HTTP/1.1" 200 968
+C:\DjangoWorkSpace\myProject01\myProject01\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 12:37:14
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+[16/Dec/2021 12:37:17] "GET /detail_idx/?idx=1 HTTP/1.1" 200 488
+[16/Dec/2021 12:37:18] "GET /update_form/1 HTTP/1.1" 301 0
+[16/Dec/2021 12:37:18] "GET /update_form/1/ HTTP/1.1" 200 788
+[16/Dec/2021 12:38:35] "GET /update_form/1/ HTTP/1.1" 200 797
+[16/Dec/2021 12:39:51] "GET /update_form/1/ HTTP/1.1" 200 799
+C:\DjangoWorkSpace\myProject01\myProject01\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 13:53:37
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+1
+[16/Dec/2021 13:53:37] "GET / HTTP/1.1" 200 968
+[16/Dec/2021 13:53:41] "GET /detail_idx/?idx=1 HTTP/1.1" 200 488
+[16/Dec/2021 13:53:42] "GET /update_form/1/ HTTP/1.1" 200 719
+[16/Dec/2021 13:53:52] "GET /update_form/1/ HTTP/1.1" 200 719
+[16/Dec/2021 13:54:05] "GET /update_form/1/ HTTP/1.1" 200 719
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 13:55:44
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+[16/Dec/2021 13:55:48] "GET /update_form/1/ HTTP/1.1" 200 720
+C:\ProgramData\Anaconda3\lib\site-packages\django\db\models\fields\__init__.py:1409: RuntimeWarning: DateTimeField Board.post_date received a naive datetime (2021-12-16 13:55:59.849943) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+[16/Dec/2021 13:55:59] "POST /update/ HTTP/1.1" 302 0
+1
+[16/Dec/2021 13:55:59] "GET /list/ HTTP/1.1" 200 970
+[16/Dec/2021 13:56:24] "GET /detail_idx/?idx=1 HTTP/1.1" 200 490
+[16/Dec/2021 13:58:18] "GET /detail_idx/?idx=1 HTTP/1.1" 200 513
+1
+[16/Dec/2021 13:58:20] "GET / HTTP/1.1" 200 970
+[16/Dec/2021 13:58:21] "GET /write_form HTTP/1.1" 200 743
+[16/Dec/2021 13:58:46] "GET /write_form HTTP/1.1" 200 743
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:00:34
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:01:02
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:04:57
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:05:27
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:06:23
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+[16/Dec/2021 14:06:28] "GET /write_form HTTP/1.1" 200 743
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:06:59
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\ProgramData\Anaconda3\lib\site-packages\django\db\models\fields\__init__.py:1409: RuntimeWarning: DateTimeField Board.post_date received a naive datetime (2021-12-16 14:07:00.317480) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+[16/Dec/2021 14:07:00] "POST /insert/ HTTP/1.1" 302 0
+2
+[16/Dec/2021 14:07:00] "GET /list/ HTTP/1.1" 200 1277
+[16/Dec/2021 14:07:47] "GET /detail_idx?idx=3 HTTP/1.1" 301 0
+[16/Dec/2021 14:07:47] "GET /detail_idx/?idx=3 HTTP/1.1" 200 509
+2
+[16/Dec/2021 14:07:52] "GET /list/ HTTP/1.1" 200 1277
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:09:30
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:09:42
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:10:31
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:10:35
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+[16/Dec/2021 14:10:45] "GET /detail/3 HTTP/1.1" 301 0
+board_idx 3
+[16/Dec/2021 14:10:45] "GET /detail/3/ HTTP/1.1" 200 509
+[16/Dec/2021 14:10:46] "GET /update_form/3 HTTP/1.1" 301 0
+[16/Dec/2021 14:10:46] "GET /update_form/3/ HTTP/1.1" 200 748
+C:\ProgramData\Anaconda3\lib\site-packages\django\db\models\fields\__init__.py:1409: RuntimeWarning: DateTimeField Board.post_date received a naive datetime (2021-12-16 14:11:07.029143) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+[16/Dec/2021 14:11:07] "POST /update/ HTTP/1.1" 302 0
+2
+[16/Dec/2021 14:11:07] "GET /list/ HTTP/1.1" 200 1277
+board_idx 3
+[16/Dec/2021 14:11:17] "GET /detail/3/ HTTP/1.1" 200 509
+[16/Dec/2021 14:11:19] "GET /update_form/3/ HTTP/1.1" 200 748
+C:\ProgramData\Anaconda3\lib\site-packages\django\db\models\fields\__init__.py:1409: RuntimeWarning: DateTimeField Board.post_date received a naive datetime (2021-12-16 14:11:32.110083) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+[16/Dec/2021 14:11:32] "POST /update/ HTTP/1.1" 302 0
+2
+[16/Dec/2021 14:11:32] "GET /list/ HTTP/1.1" 200 1277
+board_idx 3
+[16/Dec/2021 14:11:33] "GET /detail/3/ HTTP/1.1" 200 509
+2
+[16/Dec/2021 14:16:22] "GET / HTTP/1.1" 500 162024
+2
+[16/Dec/2021 14:16:33] "GET / HTTP/1.1" 200 1570
+[16/Dec/2021 14:16:33] "GET /myapp01/static/images/diablo00.jpg HTTP/1.1" 200 182425
+2
+[16/Dec/2021 14:17:06] "GET / HTTP/1.1" 200 1616
+2
+[16/Dec/2021 14:17:25] "GET / HTTP/1.1" 200 1620
+2
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\django\template\smartif.py", line 175, in translate_token
+    op = OPERATORS[token]
+KeyError: 'board.filesize>'
+
+During handling of the above exception, another exception occurred:
+
+[16/Dec/2021 14:18:46] "GET / HTTP/1.1" 500 182326
+2
+[16/Dec/2021 14:18:58] "GET / HTTP/1.1" 200 1770
+[16/Dec/2021 14:19:27] "GET /write_form HTTP/1.1" 200 743
+C:\ProgramData\Anaconda3\lib\site-packages\django\db\models\fields\__init__.py:1409: RuntimeWarning: DateTimeField Board.post_date received a naive datetime (2021-12-16 14:19:38.379718) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+[16/Dec/2021 14:19:38] "POST /insert/ HTTP/1.1" 302 0
+3
+[16/Dec/2021 14:19:38] "GET /list/ HTTP/1.1" 200 2158
+board_idx 1
+[16/Dec/2021 14:20:49] "GET /detail/1/ HTTP/1.1" 200 548
+board_idx 3
+[16/Dec/2021 14:20:53] "GET /detail/3/ HTTP/1.1" 200 558
+[16/Dec/2021 14:21:00] "GET /detail_idx/?idx=1 HTTP/1.1" 200 548
+[16/Dec/2021 14:22:04] "GET /update_form/1/ HTTP/1.1" 200 724
+3
+[16/Dec/2021 14:29:28] "GET / HTTP/1.1" 200 2598
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+TypeError: 'QueryDict' object is not callable
+[16/Dec/2021 14:32:11] "GET /list/?field=writer&word=bbb HTTP/1.1" 500 61678
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:32:33
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+3
+[16/Dec/2021 14:32:38] "GET / HTTP/1.1" 200 2598
+bbb writer
+3
+[16/Dec/2021 14:32:42] "GET /list/?field=writer&word=bbb HTTP/1.1" 200 2598
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:33:07
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:33:24
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:33:32
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:34:46
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:39:39
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+[16/Dec/2021 14:39:54] "GET /write_form HTTP/1.1" 200 743
+[16/Dec/2021 14:40:03] "GET /write_form HTTP/1.1" 200 743
+C:\ProgramData\Anaconda3\lib\site-packages\django\db\models\fields\__init__.py:1409: RuntimeWarning: DateTimeField Board.post_date received a naive datetime (2021-12-16 14:41:04.946889) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+[16/Dec/2021 14:41:04] "POST /insert/ HTTP/1.1" 302 0
+
+4
+[16/Dec/2021 14:41:05] "GET /list/ HTTP/1.1" 200 3113
+bbb writer
+1
+[16/Dec/2021 14:49:52] "GET /list/?field=writer&word=bbb HTTP/1.1" 200 3113
+[16/Dec/2021 14:49:58] "GET /list?field=title&word= HTTP/1.1" 301 0
+ title
+4
+[16/Dec/2021 14:49:58] "GET /list/?field=title&word= HTTP/1.1" 200 3113
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:53:40
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+
+
+SyntaxError: invalid syntax
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:57:23
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:57:48
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:58:22
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:58:35
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 14:59:49
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 15:01:22
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 15:02:26
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 15:02:54
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 15:03:03
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 15:03:18
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 15:04:17
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 15:05:00
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+[16/Dec/2021 15:05:28] "GET /list?field=writer&word=bbbb HTTP/1.1" 301 0
+bbbb writer
+[16/Dec/2021 15:05:28] "GET /list/?field=writer&word=bbbb HTTP/1.1" 200 1695
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 15:07:23
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+[16/Dec/2021 15:07:45] "GET /list?field=all&word=bbb HTTP/1.1" 301 0
+bbb all
+[16/Dec/2021 15:07:45] "GET /list/?field=all&word=bbb HTTP/1.1" 200 1695
+[16/Dec/2021 15:07:50] "GET /list?field=writer&word=ccc HTTP/1.1" 301 0
+ccc writer
+[16/Dec/2021 15:07:50] "GET /list/?field=writer&word=ccc HTTP/1.1" 200 1177
+[16/Dec/2021 15:07:56] "GET /list?field=writer&word=CCC HTTP/1.1" 301 0
+CCC writer
+[16/Dec/2021 15:07:56] "GET /list/?field=writer&word=CCC HTTP/1.1" 200 1692
+[16/Dec/2021 15:08:59] "GET /list?field=title&word=0 HTTP/1.1" 301 0
+0 title
+[16/Dec/2021 15:08:59] "GET /list/?field=title&word=0 HTTP/1.1" 200 1177
+[16/Dec/2021 15:09:07] "GET /list?field=title&word=1 HTTP/1.1" 301 0
+1 title
+[16/Dec/2021 15:09:07] "GET /list/?field=title&word=1 HTTP/1.1" 200 1177
+ title
+[16/Dec/2021 15:09:17] "GET /list/?field=title&word= HTTP/1.1" 200 3113
+0 title
+[16/Dec/2021 15:10:29] "GET /list/?field=title&word=0 HTTP/1.1" 200 1177
+[16/Dec/2021 15:10:34] "GET /list?field=all&word=0 HTTP/1.1" 301 0
+0 all
+[16/Dec/2021 15:10:34] "GET /list/?field=all&word=0 HTTP/1.1" 200 1177
+1 title
+[16/Dec/2021 15:10:38] "GET /list/?field=title&word=1 HTTP/1.1" 200 1177
+1 title
+[16/Dec/2021 15:12:27] "GET /list/?field=title&word=1 HTTP/1.1" 200 1177
+1 title
+[16/Dec/2021 15:13:48] "GET /list/?field=title&word=1 HTTP/1.1" 200 1177
+ title
+[16/Dec/2021 15:14:01] "GET /list/?field=title&word= HTTP/1.1" 200 3113
+1 title
+[16/Dec/2021 15:14:07] "GET /list/?field=title&word=1 HTTP/1.1" 200 1177
+0 title
+[16/Dec/2021 15:14:11] "GET /list/?field=title&word=0 HTTP/1.1" 200 1177
+0 title
+[16/Dec/2021 15:14:14] "GET /list/?field=title&word=0 HTTP/1.1" 200 1177
+ title
+[16/Dec/2021 15:14:17] "GET /list/?field=title&word= HTTP/1.1" 200 3113
+1 title
+[16/Dec/2021 15:14:19] "GET /list/?field=title&word=1 HTTP/1.1" 200 1177
+1 title
+[16/Dec/2021 15:20:56] "GET /list/?field=title&word=1 HTTP/1.1" 200 1281
+1 title
+[16/Dec/2021 15:20:58] "GET /list/?field=title&word=1 HTTP/1.1" 200 1281
+0 title
+[16/Dec/2021 15:21:01] "GET /list/?field=title&word=0 HTTP/1.1" 200 1281
+ title
+[16/Dec/2021 15:21:04] "GET /list/?field=title&word= HTTP/1.1" 200 3217
+[16/Dec/2021 15:21:19] "GET /write_form HTTP/1.1" 200 743
+C:\ProgramData\Anaconda3\lib\site-packages\django\db\models\fields\__init__.py:1409: RuntimeWarning: DateTimeField Board.post_date received a naive datetime (2021-12-16 15:21:28.649028) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+[16/Dec/2021 15:21:28] "POST /insert/ HTTP/1.1" 302 0
+
+[16/Dec/2021 15:21:28] "GET /list/ HTTP/1.1" 200 3608
+[16/Dec/2021 15:21:41] "GET /write_form HTTP/1.1" 200 743
+C:\ProgramData\Anaconda3\lib\site-packages\django\db\models\fields\__init__.py:1409: RuntimeWarning: DateTimeField Board.post_date received a naive datetime (2021-12-16 15:21:54.352777) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+[16/Dec/2021 15:21:54] "POST /insert/ HTTP/1.1" 302 0
+
+[16/Dec/2021 15:21:54] "GET /list/ HTTP/1.1" 200 3605
+
+[16/Dec/2021 15:22:30] "GET /list/ HTTP/1.1" 200 3605
+
+[16/Dec/2021 15:23:38] "GET /list/ HTTP/1.1" 200 3605
+
+[16/Dec/2021 15:24:26] "GET /list/ HTTP/1.1" 200 3605
+
+[16/Dec/2021 15:24:52] "GET /list/ HTTP/1.1" 200 3605
+
+[16/Dec/2021 15:27:22] "GET /list/ HTTP/1.1" 200 3609
+
+[16/Dec/2021 15:27:26] "GET /list/ HTTP/1.1" 200 3609
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 15:28:38
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+C:\DjangoWorkSpace\myProject01\myapp01\views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2021 - 15:29:10
+Django version 4.0, using settings 'myProject01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+[16/Dec/2021 15:29:11] "GET /list/ HTTP/1.1" 200 3698
+
+[16/Dec/2021 15:29:13] "GET /list/ HTTP/1.1" 200 3698
+
+[16/Dec/2021 15:29:17] "GET /list/ HTTP/1.1" 200 3698
+[16/Dec/2021 15:29:22] "GET /write_form HTTP/1.1" 200 743
+
+[16/Dec/2021 15:29:32] "GET / HTTP/1.1" 200 3698
+
+[16/Dec/2021 15:29:37] "GET / HTTP/1.1" 200 3698
+
+[16/Dec/2021 15:29:59] "GET / HTTP/1.1" 200 3695
+[16/Dec/2021 15:31:47] "GET /write_form HTTP/1.1" 200 743
+C:\ProgramData\Anaconda3\lib\site-packages\django\db\models\fields\__init__.py:1409: RuntimeWarning: DateTimeField Board.post_date received a naive datetime (2021-12-16 15:31:56.499720) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+[16/Dec/2021 15:31:56] "POST /insert/ HTTP/1.1" 302 0
+
+[16/Dec/2021 15:31:56] "GET /list/ HTTP/1.1" 200 3578
+[16/Dec/2021 15:33:04] "GET /write_form HTTP/1.1" 200 743
+C:\ProgramData\Anaconda3\lib\site-packages\django\db\models\fields\__init__.py:1409: RuntimeWarning: DateTimeField Board.post_date received a naive datetime (2021-12-16 15:33:10.871641) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+[16/Dec/2021 15:33:10] "POST /insert/ HTTP/1.1" 302 0
+
+[16/Dec/2021 15:33:10] "GET /list/ HTTP/1.1" 200 3578
+
+[16/Dec/2021 15:35:30] "GET /list/ HTTP/1.1" 500 152539
+
+[16/Dec/2021 15:35:46] "GET /list/ HTTP/1.1" 200 3598
+
+[16/Dec/2021 15:35:48] "GET /list/?page=2&field=&word= HTTP/1.1" 200 2813
+
+[16/Dec/2021 15:35:50] "GET /list/?page=1&field=&word= HTTP/1.1" 200 3598
+
+[16/Dec/2021 15:35:53] "GET /list/?page=2&field=&word= HTTP/1.1" 200 2813
+[16/Dec/2021 15:36:02] "GET /list?field=title&word=7 HTTP/1.1" 301 0
+7 title
+[16/Dec/2021 15:36:02] "GET /list/?field=title&word=7 HTTP/1.1" 200 1285
+
+[16/Dec/2021 15:36:08] "GET /list/?page=1&field=&word= HTTP/1.1" 200 3598
+[16/Dec/2021 15:36:13] "GET /list?field=title&word=8 HTTP/1.1" 301 0
+8 title
+[16/Dec/2021 15:36:13] "GET /list/?field=title&word=8 HTTP/1.1" 200 1285
+
+[16/Dec/2021 15:49:33] "GET /list/?page=1&field=&word= HTTP/1.1" 200 3598
+
+[16/Dec/2021 15:49:35] "GET /list/?page=2&field=&word= HTTP/1.1" 200 2813
+
+[16/Dec/2021 15:49:36] "GET /list/?page=1&field=&word= HTTP/1.1" 200 3598
+
+[16/Dec/2021 15:50:02] "GET /list/?page=2&field=&word= HTTP/1.1" 200 2813
+[16/Dec/2021 15:50:06] "GET /write_form HTTP/1.1" 200 743
+C:\ProgramData\Anaconda3\lib\site-packages\django\db\models\fields\__init__.py:1409: RuntimeWarning: DateTimeField Board.post_date received a naive datetime (2021-12-16 15:50:13.826120) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+[16/Dec/2021 15:50:13] "POST /insert/ HTTP/1.1" 302 0
+
+[16/Dec/2021 15:50:13] "GET /list/ HTTP/1.1" 200 3475
+[16/Dec/2021 15:50:18] "GET /list?field=title&word=%EB%84%B7 HTTP/1.1" 301 0
+넷 title
+[16/Dec/2021 15:50:18] "GET /list/?field=title&word=%EB%84%B7 HTTP/1.1" 200 1285
+[16/Dec/2021 15:50:20] "GET /write_form HTTP/1.1" 200 743
+C:\ProgramData\Anaconda3\lib\site-packages\django\db\models\fields\__init__.py:1409: RuntimeWarning: DateTimeField Board.post_date received a naive datetime (2021-12-16 15:50:27.664745) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+[16/Dec/2021 15:50:27] "POST /insert/ HTTP/1.1" 302 0
+
+[16/Dec/2021 15:50:27] "GET /list/ HTTP/1.1" 200 3476
+[16/Dec/2021 15:50:31] "GET /write_form HTTP/1.1" 200 743
+C:\ProgramData\Anaconda3\lib\site-packages\django\db\models\fields\__init__.py:1409: RuntimeWarning: DateTimeField Board.post_date received a naive datetime (2021-12-16 15:50:46.745207) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+[16/Dec/2021 15:50:46] "POST /insert/ HTTP/1.1" 302 0
+
+[16/Dec/2021 15:50:46] "GET /list/ HTTP/1.1" 200 3560
+
+[16/Dec/2021 15:50:55] "GET /list/?page=3&field=&word= HTTP/1.1" 200 1984
+[16/Dec/2021 15:50:57] "GET /write_form HTTP/1.1" 200 743
+[16/Dec/2021 15:51:19] "GET /list?field=writer&word=b HTTP/1.1" 301 0
+b writer
+[16/Dec/2021 15:51:19] "GET /list/?field=writer&word=b HTTP/1.1" 200 1839
+ title
+[16/Dec/2021 15:51:26] "GET /list/?field=title&word= HTTP/1.1" 200 3570
+ title
+[16/Dec/2021 15:56:54] "GET /list/?field=title&word= HTTP/1.1" 200 3802
+ title
+[16/Dec/2021 15:57:04] "GET /list/?field=title&word= HTTP/1.1" 200 3802
+bbb writer
+[16/Dec/2021 15:57:11] "GET /list/?field=writer&word=bbb HTTP/1.1" 200 2073
+bbb writer
+[16/Dec/2021 15:59:27] "GET /list/?field=writer&word=bbb HTTP/1.1" 200 2050
+[16/Dec/2021 16:00:13] "GET /list?field=title&word=bbb HTTP/1.1" 301 0
+bbb title
+[16/Dec/2021 16:00:13] "GET /list/?field=title&word=bbb HTTP/1.1" 200 2049
+bbb title
+[16/Dec/2021 16:00:19] "GET /list/?field=title&word=bbb HTTP/1.1" 200 2049
+
+[16/Dec/2021 16:00:23] "GET / HTTP/1.1" 200 3765
+bbb title
+[16/Dec/2021 16:00:28] "GET /list/?field=title&word=bbb HTTP/1.1" 200 2049
+bbb title
+[16/Dec/2021 16:01:18] "GET /list/?field=title&word=bbb HTTP/1.1" 200 2049
+bbb title
+[16/Dec/2021 16:01:52] "GET /list/?field=title&word=bbb HTTP/1.1" 200 2049
+bbb title
+[16/Dec/2021 16:01:58] "GET /list/?field=title&word=bbb HTTP/1.1" 200 2049
+bbb title
+[16/Dec/2021 16:02:07] "GET /list/?field=title&word=bbb HTTP/1.1" 200 2049
+
+[16/Dec/2021 16:02:11] "GET / HTTP/1.1" 200 3765
+bbbb writer
+[16/Dec/2021 16:02:23] "GET /list/?field=writer&word=bbbb HTTP/1.1" 200 2050
+bbbb writer
+[16/Dec/2021 16:02:28] "GET /list/?field=writer&word=bbbb HTTP/1.1" 200 2050
+[16/Dec/2021 16:03:29] "GET /list?field=writer&word=0 HTTP/1.1" 301 0
+0 writer
+[16/Dec/2021 16:03:29] "GET /list/?field=writer&word=0 HTTP/1.1" 200 1506
+[16/Dec/2021 16:03:33] "GET /list?field=writer&word= HTTP/1.1" 301 0
+ writer
+[16/Dec/2021 16:03:33] "GET /list/?field=writer&word= HTTP/1.1" 200 3792
+bbbb writer
+[16/Dec/2021 16:03:39] "GET /list/?field=writer&word=bbbb HTTP/1.1" 200 2063
+[16/Dec/2021 16:06:10] "GET /write_form HTTP/1.1" 200 743
+C:\ProgramData\Anaconda3\lib\site-packages\django\db\models\fields\__init__.py:1409: RuntimeWarning: DateTimeField Board.post_date received a naive datetime (2021-12-16 16:06:20.781593) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+[16/Dec/2021 16:06:20] "POST /insert/ HTTP/1.1" 302 0
+
+[16/Dec/2021 16:06:20] "GET /list/ HTTP/1.1" 200 3777
+[16/Dec/2021 16:06:23] "GET /write_form HTTP/1.1" 200 743
+C:\ProgramData\Anaconda3\lib\site-packages\django\db\models\fields\__init__.py:1409: RuntimeWarning: DateTimeField Board.post_date received a naive datetime (2021-12-16 16:18:21.097753) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+[16/Dec/2021 16:18:21] "POST /insert/ HTTP/1.1" 302 0
+
+[16/Dec/2021 16:18:21] "GET /list/ HTTP/1.1" 200 3789
+[16/Dec/2021 16:18:23] "GET /write_form HTTP/1.1" 200 743
+C:\ProgramData\Anaconda3\lib\site-packages\django\db\models\fields\__init__.py:1409: RuntimeWarning: DateTimeField Board.post_date received a naive datetime (2021-12-16 16:18:32.994925) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+[16/Dec/2021 16:18:33] "POST /insert/ HTTP/1.1" 302 0
+
+[16/Dec/2021 16:18:33] "GET /list/ HTTP/1.1" 200 3786
+[16/Dec/2021 16:18:34] "GET /write_form HTTP/1.1" 200 743
+C:\ProgramData\Anaconda3\lib\site-packages\django\db\models\fields\__init__.py:1409: RuntimeWarning: DateTimeField Board.post_date received a naive datetime (2021-12-16 16:18:39.574527) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+[16/Dec/2021 16:18:39] "POST /insert/ HTTP/1.1" 302 0
+
+[16/Dec/2021 16:18:39] "GET /list/ HTTP/1.1" 200 3783
+[16/Dec/2021 16:18:46] "GET /write_form HTTP/1.1" 200 743
+C:\ProgramData\Anaconda3\lib\site-packages\django\db\models\fields\__init__.py:1409: RuntimeWarning: DateTimeField Board.post_date received a naive datetime (2021-12-16 16:19:04.963870) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+[16/Dec/2021 16:19:04] "POST /insert/ HTTP/1.1" 302 0
+
+[16/Dec/2021 16:19:04] "GET /list/ HTTP/1.1" 200 3739
+
+[16/Dec/2021 16:19:06] "GET /list/?page=4&field=&word= HTTP/1.1" 200 2109
+
+[16/Dec/2021 16:19:08] "GET /list/?page=1&field=&word= HTTP/1.1" 200 3739
+[16/Dec/2021 16:19:16] "GET /list?field=writer&word=%EC%9E%A5%EA%B3%A0 HTTP/1.1" 301 0
+장고 writer
+[16/Dec/2021 16:19:16] "GET /list/?field=writer&word=%EC%9E%A5%EA%B3%A0 HTTP/1.1" 200 1975
